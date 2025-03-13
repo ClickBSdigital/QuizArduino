@@ -1,12 +1,12 @@
 <?php
 include 'db.php';
 
-// Função para cadastrar usuário (professor ou aluno)
-function registerUser($nome, $email, $senha, $tipo) {
-    global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$nome, $email, password_hash($senha, PASSWORD_DEFAULT), $tipo]);
-}
+// // Função para cadastrar usuário (professor ou aluno)
+// function registerUser($nome, $email, $senha, $tipo) {
+//     global $pdo;
+//     $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)");
+//     $stmt->execute([$nome, $email, $senha, $tipo]);
+// }
 
 // Função para login do usuário
 function loginUser($email, $senha) {

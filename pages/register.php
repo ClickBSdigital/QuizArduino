@@ -8,13 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     registerUser($usuario, $senha, $tipo_usuario);
 }
 
-function registerUser($usuario, $senha, $tipo_usuario) {
-    global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO usuarios (usuario, senha, tipo_usuario) VALUES (?, ?, ?)");
-    $stmt->execute([$usuario, $senha, $tipo_usuario]);
-    header('Location: login.php');
-    exit();
-}
+// function registerUser($usuario, $senha, $tipo_usuario) {
+//     global $pdo;
+//     $stmt = $pdo->prepare("INSERT INTO usuarios (usuario, senha, tipo_usuario) VALUES (?, ?, ?)");
+//     $stmt->execute([$usuario, $senha, $tipo_usuario]);
+//     header('Location: login.php');
+//     exit();
+// }
 ?>
 
 <!DOCTYPE html>

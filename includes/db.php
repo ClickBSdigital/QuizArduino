@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost'; 
 $dbname = 'quiz_arduino';
-$username = 'devweb';
-$password = 'suporte@22';
+$username = 'root';
+$password = '';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

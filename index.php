@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("config/db.php"); // Conexão com o banco de dados
+include_once("../config/db.php"); // Conexão com o banco de dados
 
 // Verificar se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
@@ -26,9 +26,11 @@ if (isset($_GET['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Quiz</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="background"></div>
+    
     <header>
         <h1>Bem-vindo ao Sistema de Quiz</h1>
         <nav>
@@ -40,7 +42,7 @@ if (isset($_GET['logout'])) {
                     <li><a href="relatorio.php">Relatórios</a></li>
                     <li><a href="perguntas_erradas.php">Perguntas Erradas</a></li>
                 <?php endif; ?>
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="?logout=true">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -56,7 +58,7 @@ if (isset($_GET['logout'])) {
             <p>Você pode responder aos quizzes e visualizar suas respostas erradas.</p>
         <?php endif; ?>
 
-        <p><a href="logout.php">Clique aqui para fazer logout</a></p>
+        <p><a href="?logout=true">Clique aqui para fazer logout</a></p>
     </main>
 
     <footer>

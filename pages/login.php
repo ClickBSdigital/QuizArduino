@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function login($usuario, $senha) {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = ? AND senha = ?");
+    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ? AND senha = ?");
     $stmt->execute([$usuario, $senha]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

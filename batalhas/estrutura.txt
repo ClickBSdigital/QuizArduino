@@ -1,0 +1,187 @@
+Estrutura de Pastas do Projeto
+
+/meu_projeto
+│── /assets
+│   ├── /css
+│   │   ├── styles.css
+│   │   ├── responsive.css
+│   ├── /js
+│   │   ├── script.js
+│   │   ├── ajax.js
+│   ├── /img
+│   │   ├── logo.png
+│── /config
+│   ├── database.php
+│   ├── auth.php
+│── /pages
+│   ├── dashboard.php
+│   ├── login.php
+│   ├── cadastro.php
+│   ├── painel_admin.php
+│   ├── painel_fases.php
+│   ├── painel_estatisticas.php
+│   ├── gerenciar_eventos.php
+│   ├──liberar_premio.php
+│   ├── gerenciar_perguntas.php
+│   ├── gerenciar_fases.php
+|   ├── responder_perguntas.php
+│── /api
+│   ├── atualizar_resultados.php
+│   ├── pontuar.php
+│── index.php
+│── menu.php
+│── footer.php
+│── logout.php
+│── README.md
+
+
+📜 Explicação das Pastas e Arquivos
+📂 /assets
+/css → Estilos do site
+
+/js → Scripts para interações
+
+/img → Imagens usadas no site
+
+📂 /config
+database.php → Conexão com MySQL
+
+auth.php → Verificação de login e permissões
+
+📂 /pages
+dashboard.php → Tela inicial do professor
+
+login.php → Tela de login
+
+cadastro.php → Tela de cadastro
+
+painel_admin.php → Gerenciamento de eventos
+
+painel_estatisticas.php → Estatísticas do jogo
+
+gerenciar_eventos.php → CRUD de eventos
+
+gerenciar_perguntas.php → Cadastro de perguntas
+
+gerenciar_fases.php → Controle de fases e prêmios
+
+📂 /api
+atualizar_resultados.php → Atualiza o ranking via AJAX
+
+pontuar.php → Registra pontos das equipes
+
+📜 Arquivos principais
+index.php → Página inicial
+
+menu.php → Menu de navegação
+
+footer.php → Rodapé
+
+logout.php → Encerra a sessão
+
+README.md → Documentação do projeto
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+alguns recursos podem estar dentro de outros, mas seguem uma estrutura organizada para facilitar o desenvolvimento. Aqui estão algumas relações entre os arquivos e funcionalidades:
+
+📌 Recursos Relacionados
+1️⃣ Autenticação e Login
+
+/pages/login.php → Formulário de login
+
+/config/auth.php → Processa login e valida usuários
+
+/logout.php → Encerra a sessão
+
+2️⃣ Cadastro e Gerenciamento de Eventos, Perguntas e Fases
+
+/pages/painel_admin.php → Dashboard do professor
+
+/pages/gerenciar_eventos.php → Cadastro/edição de eventos
+
+/pages/gerenciar_perguntas.php → CRUD de perguntas
+
+/pages/gerenciar_fases.php → Definição de fases e prêmios
+
+3️⃣ Ranking e Estatísticas
+
+/pages/painel_estatisticas.php → Exibição de gráficos
+
+/api/atualizar_resultados.php → Retorna dados via AJAX
+
+/assets/js/ajax.js → Atualiza ranking sem recarregar
+
+4️⃣ Pontuação e Atualização em Tempo Real
+
+/api/pontuar.php → Processa pontos quando equipe acerta
+
+/api/atualizar_resultados.php → Atualiza placar via AJAX
+
+Sons e alertas adicionados em /assets/js/script.js
+
+5️⃣ Estrutura Geral e Reutilização
+
+/index.php → Home
+
+/menu.php → Menu usado em todas as páginas
+
+/footer.php → Rodapé comum
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+📌 Passo a Passo para Começar o Projeto
+Vou dividir o desenvolvimento em etapas lógicas para facilitar a construção.
+
+🔹 Passo 1: Configuração do Banco de Dados
+Antes de codificar, precisamos criar o banco de dados no MySQL.
+
+1️⃣ Crie um banco chamado competicao
+2️⃣ Crie as tabelas necessárias (usuários, eventos, equipes, perguntas, pontuações, etc.)
+
+📌 Arquivo: /config/database.php
+
+🔹 Passo 2: Criar Tabelas no MySQL
+
+🔹 Passo 3: Criar o Sistema de Login
+
+🔹 Passo 4: Criar o Menu de Navegação
+
+🔹 Passo 5: Criar a Página Inicial
+
+🔹 Passo 6: Criar Painel do Professor
+
+🔹 Passo 7: Criar Cadastro de Perguntas
+
+🔹 Passo 8: Criar Tela para os Alunos Responderem as Perguntas
+
+🔹 Passo 9: Criar o Painel de Acompanhamento da Pontuação
+
+🔹 Passo 10: Implementar AJAX para Atualização em Tempo Real
+
+🔹 Passo 11: Adicionar Sons e Alertas
+
+🔹 Passo 12: Criar Painel para o Professor Acompanhar Fases e Liberar Prêmios
+
+🔹 Passo 13: Criar Animações e Efeitos Visuais Melhores
+
+🔹 Passo 14: Criar Tela Final Mostrando os Campeões e Prêmios
+
+🔹 Passo 15: Criar Dashboard com Gráficos de Desempenho usando Chart.js
+Isso permitirá ao professor e alunos visualizarem estatísticas do jogo em tempo real.
+
+📌 Instalar Chart.js via CDN no arquivo dashboard.php
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+🔹 Passo 16: Adicionar um Cronômetro para Limite de Tempo em Cada Fase
+
+🔹 Passo 17: Criar um Chat para Comunicação entre Alunos e Professores
+
+🔹 Passo 18: Criar Sistema de Premiação Automática ao Fim do Jogo
+
+🔹 Passo 19: Adicionar Notificações Pop-up para Eventos Importantes
+
+🔹 Passo 20: Criar um Sistema de Logs para o Professor Acompanhar Ações
+

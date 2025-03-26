@@ -1,0 +1,187 @@
+Documentação do Sistema
+Visão Geral
+O sistema é uma plataforma de competição baseada em perguntas e respostas. Ele permite que professores criem eventos de competição para alunos, onde equipes são formadas automaticamente e competem em várias fases de perguntas. O sistema inclui uma interface para o professor cadastrar eventos, perguntas e fases, enquanto os alunos podem responder às perguntas e acompanhar sua pontuação.
+
+Arquitetura do Sistema
+O sistema é dividido em várias camadas, cada uma com responsabilidades específicas:
+
+Frontend (Interface de Usuário):
+
+HTML/CSS para a estrutura e estilo das páginas.
+
+JavaScript (AJAX) para interatividade e atualização em tempo real.
+
+Chart.js para exibição de gráficos e estatísticas de desempenho.
+
+Sons e Animações para melhorar a experiência do usuário.
+
+Backend (Lógica e Banco de Dados):
+
+PHP para controle de acesso, manipulação de dados e interações com o banco de dados.
+
+MySQL como banco de dados relacional para armazenar informações de usuários, eventos, perguntas, fases, resultados, etc.
+
+Sessões para controle de login e autenticação de usuários.
+
+Estrutura de Diretórios do Projeto
+plaintext
+Copiar
+Editar
+/meu_projeto
+│── /assets
+│   ├── /css
+│   │   ├── styles.css
+│   │   ├── responsive.css
+│   ├── /js
+│   │   ├── script.js
+│   │   ├── ajax.js
+│   ├── /img
+│   │   ├── logo.png
+│── /config
+│   ├── database.php
+│   ├── auth.php
+│── /models
+│   ├── User.php
+│   ├── Event.php
+│   ├── Question.php
+│── /pages
+│   ├── dashboard.php
+│   ├── login.php
+│   ├── cadastro.php
+│   ├── painel_admin.php
+│   ├── painel_fases.php
+│   ├── painel_estatisticas.php
+│   ├── gerenciar_eventos.php
+│   ├── liberar_premio.php
+│   ├── gerenciar_perguntas.php
+│   ├── gerenciar_fases.php
+│   ├── responder_perguntas.php
+│── /api
+│   ├── atualizar_resultados.php
+│   ├── pontuar.php
+│── index.php
+│── menu.php
+│── footer.php
+│── logout.php
+│── README.md
+Principais Funcionalidades
+Cadastro e Login:
+
+Os usuários (professores e alunos) podem se cadastrar e fazer login no sistema.
+
+O login é autenticado com sessões PHP.
+
+Redirecionamento para as páginas corretas com base no tipo de usuário (professor ou aluno).
+
+Gerenciamento de Eventos (Painel do Professor):
+
+O professor pode criar eventos, definir número de participantes por equipe, e atribuir perguntas e fases.
+
+Cada evento pode ter várias fases e cada fase tem um prêmio atrelado.
+
+O painel do professor permite gerenciar as perguntas do evento, incluindo a definição de respostas corretas e erradas.
+
+Competição (Alunos):
+
+Os alunos podem ver as perguntas e responder a elas em uma ordem alternada (não repetitiva).
+
+O desempenho das equipes é atualizado em tempo real através de AJAX.
+
+O sistema exibe gráficos e estatísticas para monitoramento do desempenho das equipes.
+
+Painel de Estatísticas e Ranking:
+
+O sistema exibe gráficos de desempenho com o uso de Chart.js.
+
+O ranking é atualizado automaticamente à medida que os alunos respondem às perguntas.
+
+Ao final de cada fase, a pontuação das equipes é atualizada e o painel do professor reflete as mudanças.
+
+Alertas e Sons:
+
+Sons são acionados para avisar quando uma equipe pontua ou avança de fase.
+
+Alertas em pop-up indicam eventos importantes.
+
+Documentação de Usuabilidade do Usuário Final
+Perfil de Usuário:
+Existem dois tipos de usuários no sistema: professores e alunos. Cada tipo de usuário tem uma experiência de navegação diferente com base nas suas permissões.
+
+Professor:
+
+Painel de Controle: O professor tem acesso ao painel de administração, onde pode criar e gerenciar eventos, perguntas e fases.
+
+Cadastro de Perguntas: O professor pode adicionar perguntas com respostas corretas e erradas. As perguntas serão distribuídas para as equipes de forma alternada.
+
+Gerenciamento de Fases: O professor define o número de fases do jogo, os prêmios e libera conteúdo à medida que as equipes avançam nas fases.
+
+Acompanhamento de Resultados: O professor pode visualizar o ranking das equipes em tempo real, controlar o andamento do evento e monitorar o desempenho de cada equipe através de gráficos.
+
+Aluno:
+
+Cadastro e Login: O aluno se cadastra no sistema e faz login para participar das competições.
+
+Respostas às Perguntas: Durante o evento, o aluno pode responder às perguntas exibidas em uma página de competição. As perguntas aparecem de forma alternada para cada equipe.
+
+Acompanhamento de Desempenho: O aluno pode ver sua pontuação e a posição no ranking da competição.
+
+Feedback de Pontuação: Após responder corretamente a uma pergunta, o aluno recebe feedback com sons e alertas visuais.
+
+Notificações e Sons: Quando o aluno ou a equipe avança para a próxima fase ou pontua, sons de alerta são acionados.
+
+Fluxo do Usuário
+Professor:
+
+Login: O professor faz login e é redirecionado para o painel administrativo.
+
+Criação de Evento: O professor cria um novo evento, define o número de participantes por equipe e adiciona perguntas.
+
+Gestão de Perguntas e Fases: O professor adiciona perguntas e cria as fases do evento, cada uma com um prêmio vinculado.
+
+Acompanhamento da Competição: Durante o evento, o professor monitora o desempenho das equipes através do painel de estatísticas e gráficos. O professor pode liberar prêmios conforme as equipes avançam nas fases.
+
+Aluno:
+
+Login: O aluno faz login e é direcionado para a página de competição.
+
+Resposta às Perguntas: O aluno responde às perguntas de forma sequencial. A ordem das perguntas é alternada para evitar que as equipes vejam a mesma sequência.
+
+Visualização de Pontuação: O aluno pode visualizar sua pontuação atual e sua posição no ranking.
+
+Feedback de Pontuação: Quando o aluno pontua, um alerta sonoro e visual é exibido, informando o progresso da equipe.
+
+Exemplo de Interações de Usuário:
+Professor cria evento:
+
+O professor define as regras, a quantidade de perguntas e as fases do jogo.
+
+O professor adiciona as perguntas com respostas corretas e erradas.
+
+O sistema gera automaticamente as equipes de alunos.
+
+Aluno participa da competição:
+
+O aluno entra no evento e começa a responder as perguntas.
+
+As perguntas são exibidas uma de cada vez, e a pontuação é atualizada automaticamente após cada resposta.
+
+O aluno recebe um som de alerta ao acertar uma resposta e pode ver seu progresso no ranking.
+
+Recomendações de Melhorias de Usuabilidade
+Feedback Visual e Sonoro:
+
+A interação com o usuário pode ser mais enriquecida com animações que destacam respostas corretas ou incorretas.
+
+Sons devem ser usados com moderação para não sobrecarregar a experiência do usuário.
+
+Interface Responsiva:
+
+A interface deve ser otimizada para dispositivos móveis, garantindo que a competição possa ser realizada em qualquer lugar e a qualquer hora.
+
+Design de Painel Intuitivo:
+
+O painel de administração do professor deve ser simples e de fácil navegação, para que ele possa gerenciar eventos e acompanhar a competição sem dificuldades.
+
+Comunicação entre os Participantes:
+
+Um sistema de chat pode ser adicionado para permitir que os alunos e professores se comuniquem durante o evento.

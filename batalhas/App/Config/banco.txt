@@ -1,0 +1,78 @@
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo ENUM('professor', 'aluno') NOT NULL
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE eventos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    professor_id INT NOT NULL,
+    FOREIGN KEY (professor_id) REFERENCES usuarios(id)
+);
+
+CREATE TABLE equipes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    evento_id INT NOT NULL,
+    FOREIGN KEY (evento_id) REFERENCES eventos(id)
+);
+
+CREATE TABLE perguntas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    evento_id INT NOT NULL,
+    enunciado TEXT NOT NULL,
+    resposta_correta VARCHAR(255) NOT NULL,
+    resposta_errada1 VARCHAR(255) NOT NULL,
+    resposta_errada2 VARCHAR(255) NOT NULL,
+    resposta_errada3 VARCHAR(255) NOT NULL,
+    resposta_errada4 VARCHAR(255) NOT NULL,
+    FOREIGN KEY (evento_id) REFERENCES eventos(id)
+);
+
+CREATE TABLE pontuacoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    equipe_id INT NOT NULL,
+    pontos INT DEFAULT 0,
+    FOREIGN KEY (equipe_id) REFERENCES equipes(id)
+);
+
+📌 Banco de Dados - Criar a Tabela do Chat
+
+CREATE TABLE chat (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    mensagem TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+📌 Banco de Dados - Criar Tabela de Premiação
+
+CREATE TABLE premios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    equipe_id INT NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
+    data_entrega TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (equipe_id) REFERENCES equipes(id)
+);
+
+📌 Banco de Dados - Criar Tabela de Logs
+
+CREATE TABLE logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    acao TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+📌 Banco de Dados - Criar Tabela de Fases
+
+CREATE TABLE fases (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_fase VARCHAR(255) NOT NULL,
+    descricao_fase TEXT NOT NULL,
+    premio_fase VARCHAR(255) NOT NULL
+);

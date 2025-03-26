@@ -1,19 +1,27 @@
 <?php
+session_start(); // Inicia a sessão
 include '../includes/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = $_POST['usuario'];
+    $email = $_POST['email'];  // Pegando o campo correto do formulário
     $senha = $_POST['senha'];
-    login($usuario, $senha);
+    login($email, $senha);
 }
 
-function login($usuario, $senha) {
+function login($email, $senha) {
     global $pdo;
+<<<<<<< HEAD:pages/login.php
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE id = ? AND senha = ?");
     $stmt->execute([$usuario, $senha]);
+=======
+
+    // Corrigindo a consulta para usar 'email' ao invés de 'usuario'
+    $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $stmt->execute([$email]);
+>>>>>>> 35b018e4a5157764eb79aab3e7d29341995cd59c:teste/pages/login.php
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
+    if ($user && password_verify($senha, $user['senha'])) { // Verifica senha com hash
         $_SESSION['user'] = $user;
         header('Location: index.php');
         exit();
@@ -36,8 +44,8 @@ function login($usuario, $senha) {
         <h1>Login</h1>
 
         <form action="login.php" method="POST">
-            <label for="usuario">Usuário:</label>
-            <input type="text" id="usuario" name="usuario" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
 
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" required>
